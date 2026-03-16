@@ -16,14 +16,19 @@ export type QuestionCategory = {
 }
 
 // ============ NUEVAS PREGUNTAS PARA NIÑOS (6-12 años) ============
-// Enfoque: Pedro Moncayo, territorio, comunidad y finanzas básicas
+// Enfoque: cooperativas en general y educación financiera básica (10 preguntas por categoría)
 
 export const NINOS_TERRITORIO_PEDRO_MONCAYO: Question[] = [
-  { id: 1, text: "¿En qué provincia está el cantón Pedro Moncayo?", options: ["Pichincha", "Guayas", "Azuay", "Manabí"], correctAnswer: 0, explanation: "Pedro Moncayo es un cantón de la provincia de Pichincha." },
-  { id: 2, text: "¿Cuál de estas parroquias pertenece a Pedro Moncayo?", options: ["Atuntaqui", "Tabacundo", "Baños", "Pelileo"], correctAnswer: 1, explanation: "Tabacundo es la cabecera cantonal de Pedro Moncayo." },
-  { id: 3, text: "¿Qué paisaje es típico de Pedro Moncayo?", options: ["Playas", "Montañas y campos verdes", "Desiertos", "Selva tropical"], correctAnswer: 1, explanation: "El cantón se caracteriza por sus montañas y zonas agrícolas verdes." },
-  { id: 4, text: "¿Qué animal es muy importante para cuidar los páramos?", options: ["Tiburón", "Cóndor", "Ballena", "Camello"], correctAnswer: 1, explanation: "El cóndor andino es un símbolo de los páramos y de la Sierra ecuatoriana." },
-  { id: 5, text: "¿Por qué es importante cuidar las fuentes de agua en Pedro Moncayo?", options: ["Para jugar solamente", "Porque dan agua a las familias y cultivos", "Para hacer ruido", "No es importante"], correctAnswer: 1, explanation: "Los ríos y vertientes alimentan a las personas y a la producción agrícola." },
+  { id: 1, text: "¿Qué es una cooperativa de ahorro y crédito?", options: ["Un parque de diversiones", "Una organización donde muchas personas juntan su dinero para ahorrar y acceder a créditos", "Una tienda de juguetes", "Un restaurante"], correctAnswer: 1, explanation: "En la cooperativa, los socios ponen su dinero en común para ahorrar y recibir servicios financieros." },
+  { id: 2, text: "¿Quiénes son los dueños de una cooperativa?", options: ["Un solo jefe", "Las personas socias que ahorran y participan", "Solo el gobierno", "Los clientes que pasan por ahí"], correctAnswer: 1, explanation: "En la cooperativa, cada socio es dueño y puede opinar en las asambleas." },
+  { id: 3, text: "Cuando te haces socio de una cooperativa infantil, ¿qué obtienes?", options: ["Un juguete gratis por mes", "Derecho a tener una cuenta de ahorro y a participar en actividades", "Una casa nueva", "Nada, solo una tarjeta"], correctAnswer: 1, explanation: "Ser socio te permite ahorrar, aprender de dinero y participar en decisiones sencillas." },
+  { id: 4, text: "¿Qué principio cooperativo explica que todos puedan votar sin importar cuánto dinero tienen?", options: ["Capital ilimitado", "Un socio, un voto", "El más rico decide todo", "Silencio en las reuniones"], correctAnswer: 1, explanation: "En las cooperativas cada persona socia tiene el mismo voto, sin importar el monto de su ahorro." },
+  { id: 5, text: "¿Qué valor practicas cuando ayudas a otro socio que no entiende bien un formulario de la cooperativa?", options: ["Egoísmo", "Solidaridad", "Enojo", "Indiferencia"], correctAnswer: 1, explanation: "La solidaridad es apoyar a otras personas para que también aprovechen los servicios cooperativos." },
+  { id: 6, text: "Si una cooperativa decide usar parte de sus excedentes para apoyar proyectos educativos, está aplicando el valor de:", options: ["Individualismo", "Compromiso con la comunidad", "Competencia agresiva", "Secreto"], correctAnswer: 1, explanation: "Muchas cooperativas destinan parte de sus ganancias a proyectos que benefician a la comunidad." },
+  { id: 7, text: "¿Qué documento explica los derechos y deberes de los socios de una cooperativa?", options: ["El horóscopo", "El estatuto y el reglamento interno", "El menú del comedor", "El horario de recreo"], correctAnswer: 1, explanation: "El estatuto y el reglamento indican cómo funciona la cooperativa y qué puede hacer cada socio." },
+  { id: 8, text: "¿Qué sucede si los socios no participan en las reuniones de la cooperativa?", options: ["La cooperativa se vuelve más democrática", "Pocas personas toman todas las decisiones", "Se cancelan los ahorros", "La cooperativa cierra automáticamente"], correctAnswer: 1, explanation: "Cuando pocos participan, se pierde la esencia democrática de la cooperativa." },
+  { id: 9, text: "Una cooperativa de estudiantes en una escuela puede servir para:", options: ["Vender tareas copiadas", "Aprender a organizarse, ahorrar y manejar pequeños proyectos", "Hacer menos amigos", "Evitar que los niños participen"], correctAnswer: 1, explanation: "Las cooperativas escolares son un espacio de práctica real de organización y finanzas." },
+  { id: 10, text: "Si una cooperativa decide capacitar a sus socios en educación financiera, ¿qué busca lograr?", options: ["Que gasten sin pensar", "Que tomen mejores decisiones con su dinero y entiendan los productos financieros", "Que nunca pregunten nada", "Que usen solo efectivo"], correctAnswer: 1, explanation: "La educación financiera fortalece a los socios y hace a la cooperativa más sólida." },
 ]
 
 export const NINOS_FINANZAS_DIARIAS: Question[] = [
@@ -83,14 +88,14 @@ export const NINOS_PARTICIPACION_Y_RESPETO: Question[] = [
 ]
 
 // ============ NUEVAS PREGUNTAS PARA JÓVENES (13-18 años) ============
-// Enfoque: emprendimiento local, finanzas, territorio y futuro sostenible
+// Enfoque: cooperativismo, finanzas personales, educación financiera y futuro sostenible
 
 export const JOVENES_TERRITORIO_IDENTIDAD: Question[] = [
-  { id: 101, text: "¿Por qué es importante conocer el Plan de Desarrollo y Ordenamiento Territorial (PDOT) de Pedro Moncayo?", options: ["Porque es un libro más", "Porque orienta cómo crecerá el cantón en ambiente, economía y sociedad", "Porque solo lo leen los técnicos", "No sirve para nada"], correctAnswer: 1, explanation: "El PDOT define la visión de futuro del territorio y las prioridades de inversión." },
-  { id: 102, text: "Cuando hablamos de 'identidad territorial', nos referimos a:", options: ["Solo al mapa", "Costumbres, historias, lengua y formas de vida de la gente", "La marca de ropa", "El número de habitantes"], correctAnswer: 1, explanation: "La identidad une a la comunidad alrededor de sus raíces." },
-  { id: 103, text: "Un ejemplo de patrimonio natural del cantón puede ser:", options: ["Un centro comercial", "Páramos, quebradas y miradores", "Un videojuego", "Un banco"], correctAnswer: 1, explanation: "Los ecosistemas son parte del patrimonio que debe protegerse." },
-  { id: 104, text: "¿Qué riesgo trae el crecimiento urbano desordenado en Pedro Moncayo?", options: ["Mejor transporte", "Pérdida de suelos agrícolas y fuentes de agua", "Más áreas verdes", "Menos tráfico"], correctAnswer: 1, explanation: "La expansión sin planificación afecta la producción y el ambiente." },
-  { id: 105, text: "La participación juvenil en cabildos y asambleas sirve para:", options: ["Perder tiempo", "Incluir la voz de los jóvenes en decisiones reales", "Generar conflictos", "Nada"], correctAnswer: 1, explanation: "Los jóvenes pueden proponer soluciones innovadoras para el territorio." },
+  { id: 101, text: "El principio básico de una cooperativa de ahorro y crédito es:", options: ["Ganar solo para el dueño", "La ayuda mutua entre socios", "Que manden los bancos grandes", "Que no exista control"], correctAnswer: 1, explanation: "Las cooperativas se basan en solidaridad, ayuda mutua y participación democrática." },
+  { id: 102, text: "En una cooperativa, 'un socio, un voto' significa que:", options: ["Vota quien tiene más dinero", "Cada socio tiene el mismo derecho a decidir", "Solo votan los clientes antiguos", "Solo vota el presidente"], correctAnswer: 1, explanation: "El poder no depende del dinero, sino de ser socio activo." },
+  { id: 103, text: "¿Qué función tiene un crédito en una cooperativa?", options: ["Endeudar sin control", "Financiar metas productivas o de estudio con responsabilidad", "Solo prestar para fiestas", "No tiene función"], correctAnswer: 1, explanation: "El crédito bien usado ayuda a invertir en educación, emprendimiento o mejoras familiares." },
+  { id: 104, text: "¿Qué diferencia a una cooperativa de una empresa tradicional?", options: ["Nada, son iguales", "En la cooperativa los socios son dueños y se reparte el excedente", "La cooperativa no puede ahorrar", "La cooperativa no tiene reglas"], correctAnswer: 1, explanation: "Los excedentes de la cooperativa se destinan a fondos sociales, reservas y a los socios." },
+  { id: 105, text: "El GAD Municipal Pedro Moncayo, al trabajar con cooperativas y educación financiera, busca:", options: ["Aumentar el consumo sin límites", "Fortalecer la economía local y el ahorro responsable", "Cerrar emprendimientos", "Evitar que los jóvenes aprendan finanzas"], correctAnswer: 1, explanation: "El trabajo conjunto impulsa el desarrollo económico y social del territorio.", },
 ]
 
 export const JOVENES_FINANZAS_Y_PROYECTOS: Question[] = [
@@ -166,127 +171,127 @@ export const JOVENES_QUESTIONS: Question[] = [
 // Sistema de categorías por edad con nueva paleta azul-blanco-verde
 export const QUESTION_CATEGORIES_NINOS: Record<string, QuestionCategory> = {
   territorio: {
-    name: "Mi Cantón",
-    description: "Conoce Pedro Moncayo",
+    name: "Cooperativas y Comunidad",
+    description: "Cómo funcionan las cooperativas y cómo ayudan a las personas",
     questions: NINOS_TERRITORIO_PEDRO_MONCAYO,
     color: "#1d4ed8",
     icon: "flag",
-    cromo: "/favicon.svg",
+    cromo: "/images/LogoBlancoSinLetras.png",
   },
   finanzas_diarias: {
     name: "Dinero Día a Día",
-    description: "Mesada y ahorro",
+    description: "Mesada, ahorro y decisiones inteligentes con el dinero",
     questions: NINOS_FINANZAS_DIARIAS,
     color: "#0ea5e9",
     icon: "dollar",
-    cromo: "/vite.svg",
+    cromo: "/images/LogoAzulSinLetras.png",
   },
   comunidad_feria: {
-    name: "Comunidad y Feria",
-    description: "Vida en barrio y escuela",
+    name: "Trabajo en Equipo",
+    description: "Participar, compartir y tomar decisiones juntos",
     questions: NINOS_COMUNIDAD_Y_FERIA,
     color: "#10b981",
     icon: "users",
-    cromo: "/favicon.svg",
+    cromo: "/images/logoConLetrasAbajo.png",
   },
   ambiente_paramo: {
-    name: "Agua y Páramo",
-    description: "Cuidar la naturaleza",
+    name: "Cuidar el Entorno",
+    description: "Relación entre dinero, consumo y medio ambiente",
     questions: NINOS_AMBIENTE_Y_PARAMO,
     color: "#22c55e",
     icon: "leaf",
-    cromo: "/vite.svg",
+    cromo: "/images/logoConLetrasLatreales.png",
   },
   seguridad_vial: {
-    name: "Seguridad Vial",
-    description: "Moverse con cuidado",
+    name: "Seguridad y Bienestar",
+    description: "Tomar decisiones seguras en la vida diaria",
     questions: NINOS_SEGURIDAD_VIAL,
     color: "#2563eb",
     icon: "car",
-    cromo: "/favicon.svg",
+    cromo: "/images/LogoBlancoSinLetras.png",
   },
   cultura_tradicion: {
-    name: "Cultura Viva",
-    description: "Fiestas y tradiciones",
+    name: "Valores y Cultura",
+    description: "Respeto, honestidad y responsabilidad en las finanzas",
     questions: NINOS_CULTURA_Y_TRADICION,
     color: "#0ea5e9",
     icon: "book",
-    cromo: "/vite.svg",
+    cromo: "/images/LogoAzulSinLetras.png",
   },
   turismo_rutas: {
-    name: "Rutas y Paisajes",
-    description: "Turismo responsable",
+    name: "Sueños y Metas",
+    description: "Planear objetivos y usar el dinero para lograrlos",
     questions: NINOS_TURISMO_Y_RUTAS,
     color: "#10b981",
     icon: "map",
-    cromo: "/favicon.svg",
+    cromo: "/images/logoConLetrasAbajo.png",
   },
   participacion_respeto: {
-    name: "Respeto y Voz",
-    description: "Participar en comunidad",
+    name: "Respeto y Participación",
+    description: "Tomar la palabra y decidir en grupo",
     questions: NINOS_PARTICIPACION_Y_RESPETO,
     color: "#22c55e",
     icon: "users",
-    cromo: "/vite.svg",
+    cromo: "/images/logoConLetrasLatreales.png",
   },
 }
 
 export const QUESTION_CATEGORIES_JOVENES: Record<string, QuestionCategory> = {
   territorio_identidad: {
-    name: "Territorio e Identidad",
-    description: "Planificar Pedro Moncayo",
+    name: "Cooperativismo y Organización",
+    description: "Gobierno democrático, principios cooperativos y participación",
     questions: JOVENES_TERRITORIO_IDENTIDAD,
     color: "#1d4ed8",
     icon: "map",
-    cromo: "/favicon.svg",
+    cromo: "/images/LogoBlancoSinLetras.png",
   },
   finanzas_proyectos: {
-    name: "Finanzas y Proyectos",
-    description: "Organiza tus recursos",
+    name: "Finanzas Personales",
+    description: "Presupuesto, ahorro, endeudamiento responsable e inversión básica",
     questions: JOVENES_FINANZAS_Y_PROYECTOS,
     color: "#2563eb",
     icon: "calculator",
-    cromo: "/vite.svg",
+    cromo: "/images/LogoAzulSinLetras.png",
   },
   emprendimiento_local: {
-    name: "Emprende Local",
-    description: "Ideas con identidad",
+    name: "Emprendimiento Cooperativo",
+    description: "Modelos de negocio, proyectos productivos y asociatividad",
     questions: JOVENES_EMPRENDIMIENTO_LOCAL,
     color: "#10b981",
     icon: "trending-up",
-    cromo: "/favicon.svg",
+    cromo: "/images/logoConLetrasAbajo.png",
   },
   ambiente_clima: {
-    name: "Ambiente y Clima",
-    description: "Páramo y cambio climático",
+    name: "Consumo Responsable",
+    description: "Impacto del dinero en el ambiente y la sociedad",
     questions: JOVENES_AMBIENTE_Y_CAMBIO_CLIMATICO,
     color: "#22c55e",
     icon: "leaf",
-    cromo: "/vite.svg",
+    cromo: "/images/logoConLetrasLatreales.png",
   },
   seguridad_vial_movilidad: {
-    name: "Movilidad Segura",
-    description: "Transporte y prevención",
+    name: "Riesgos y Seguridad",
+    description: "Tomar decisiones seguras con el dinero y en la vida diaria",
     questions: JOVENES_SEGURIDAD_VIAL_Y_MOVILIDAD,
     color: "#0ea5e9",
     icon: "car",
-    cromo: "/favicon.svg",
+    cromo: "/images/LogoBlancoSinLetras.png",
   },
   tecnologia_innovacion: {
-    name: "Tecnología e Innovación",
-    description: "Soluciones para el cantón",
+    name: "Tecnología y Dinero Digital",
+    description: "Pagos electrónicos, seguridad digital y oportunidades online",
     questions: JOVENES_TECNOLOGIA_Y_INNOVACION,
     color: "#38bdf8",
     icon: "cpu",
-    cromo: "/vite.svg",
+    cromo: "/images/LogoAzulSinLetras.png",
   },
   futuro_proyecto_vida: {
-    name: "Proyecto de Vida",
-    description: "Tu futuro y tu cantón",
+    name: "Proyecto de Vida Financiero",
+    description: "Metas a largo plazo, educación y libertad financiera",
     questions: JOVENES_FUTURO_Y_PROYECTO_DE_VIDA,
     color: "#1e40af",
     icon: "star",
-    cromo: "/favicon.svg",
+    cromo: "/images/logoConLetrasAbajo.png",
   },
 }
 

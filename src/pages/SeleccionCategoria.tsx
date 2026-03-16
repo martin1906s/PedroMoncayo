@@ -22,7 +22,7 @@ export default function SeleccionCategoria() {
       id: 'ninos' as const,
       title: 'NIÑOS',
       subtitle: '6 - 12 años',
-      description: 'Descubre Pedro Moncayo, su naturaleza y sus finanzas básicas.',
+      description: 'Descubre el mundo cooperativo y tus primeras finanzas.',
       IconComponent: UserIcon,
       gradient: 'from-[#1d4ed8] to-[#0ea5e9]',
       accentColor: 'text-[#1d4ed8]',
@@ -32,7 +32,7 @@ export default function SeleccionCategoria() {
       id: 'jovenes' as const,
       title: 'JÓVENES',
       subtitle: '13 - 18 años',
-      description: 'Retos sobre emprendimiento local, comunidad y futuro sostenible.',
+      description: 'Retos sobre cooperativismo, comunidad y futuro financiero.',
       IconComponent: GraduationCapIcon,
       gradient: 'from-[#0ea5e9] to-[#10b981]',
       accentColor: 'text-[#10b981]',
@@ -41,35 +41,25 @@ export default function SeleccionCategoria() {
   ]
 
   return (
-    <div className="min-vh-100 py-3 bg-[#0f172a] position-relative overflow-hidden d-flex align-items-center">
-      {/* Mesh Background */}
-      <div className="position-absolute top-0 start-0 w-100 h-100 pointer-events-none">
-        <div className="position-absolute bg-purple-600 blur-[120px] rounded-circle opacity-20" style={{ width: '600px', height: '600px', top: '-10%', left: '-10%' }}></div>
-        <div className="position-absolute bg-blue-600 blur-[120px] rounded-circle opacity-20" style={{ width: '600px', height: '600px', bottom: '-10%', right: '-10%' }}></div>
-      </div>
+    <div className="min-vh-100 py-4 app-background position-relative overflow-hidden d-flex align-items-center">
+      <div className="container position-relative" style={{ zIndex: 10, maxWidth: '1100px' }}>
 
-      <div className="container position-relative" style={{ zIndex: 10 }}>
-
-        {/* Epic Header */}
         <div className="text-center mb-4 animate-float">
-          <div className="d-flex justify-content-center mb-2">
+          <div className="d-flex justify-content-center mb-3">
             <img
-              src="/favicon.svg"
+              src="/images/logoConLetrasLatreales.png"
               alt="MichiMoney Pedro Moncayo"
               className="img-fluid"
-              style={{ maxHeight: '70px', filter: 'drop-shadow(0 5px 15px rgba(0,0,0,0.3))' }}
+              style={{ maxHeight: '110px', filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.5))' }}
             />
           </div>
-          <div className="bg-white/5 d-inline-block px-4 py-1 rounded-full border border-white/20 mb-2 backdrop-blur-xl shadow-2xl">
-            <div className="d-flex align-items-center gap-2">
-              <img src="/images/Todos los Gatos/Logo/moneda vector.png" alt="Coin" style={{ width: '20px' }} />
-              <span className="text-white fs-6 tracking-widest fw-black uppercase">Un Universo de Aprendizaje</span>
-              <img src="/images/Todos los Gatos/Logo/moneda vector.png" alt="Coin" style={{ width: '20px' }} />
-            </div>
+          <div className="d-inline-block px-4 py-1 rounded-full border border-slate-200 mb-2 shadow-sm" style={{ background: 'linear-gradient(90deg, rgba(29,78,216,0.06), rgba(16,185,129,0.06))' }}>
+            <span className="fw-bold" style={{ letterSpacing: '0.2em', textTransform: 'uppercase', color: '#1d4ed8' }}>
+              Un universo de aprendizaje cooperativo
+            </span>
           </div>
         </div>
 
-        {/* Category Duo */}
         <div className="row g-3 justify-content-center">
           {categories.map((category) => {
             const isSelected = selectedCategory === category.id
@@ -81,26 +71,25 @@ export default function SeleccionCategoria() {
                   onClick={() => handleCategorySelect(category.id)}
                   disabled={selectedCategory !== null}
                   className={`
-                    w-100 dark-glass-panel p-0 border-0 text-start transition-all duration-500 position-relative group
-                    ${isSelected ? 'scale-105 shadow-2xl ring-4 ring-white/20' : 'hover:scale-105 active:scale-95'}
+                    w-100 p-0 border-0 text-start transition-all duration-500 position-relative group rounded-4
+                    ${isSelected ? 'scale-105 shadow-2xl' : 'hover:scale-105 active:scale-95'}
                     ${isOtherSelected ? 'opacity-30 blur-sm grayscale pointer-events-none' : ''}
                   `}
-                  style={{ 
-                    background: isSelected 
-                      ? `linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03))` 
-                      : 'rgba(255, 255, 255, 0.02)' 
+                  style={{
+                    background: isSelected
+                      ? `linear-gradient(135deg, rgba(29,78,216,0.18), rgba(16,185,129,0.18))`
+                      : `linear-gradient(135deg, rgba(29,78,216,0.12), rgba(16,185,129,0.12))`,
+                    padding: '1px'
                   }}
                 >
-                  {/* Decorative Header */}
-                  <div className={`h-1 bg-gradient-to-r ${category.gradient} opacity-80`} />
-                  
-                  <div className="p-3 p-md-4 position-relative z-10">
+                  {/* Inner white card unificada */}
+                  <div className="michi-card p-3 p-md-4 position-relative z-10">
                     {/* Badge y Icono */}
                     <div className="d-flex align-items-center justify-content-between mb-3">
-                      <div className="bg-white/10 p-2 rounded-3 backdrop-blur-md border border-white/20">
-                        <category.IconComponent size={24} className="text-white" />
+                      <div className="p-2 rounded-3 border border-slate-200" style={{ backgroundColor: 'rgba(219,234,254,0.9)' }}>
+                        <category.IconComponent size={24} className="text-[#1f2937]" />
                       </div>
-                      <div className="px-3 py-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
+                      <div className="px-3 py-1 rounded-full border border-white/10 backdrop-blur-md" style={{ backgroundColor: 'rgba(191,219,254,0.2)' }}>
                          <span className={`small fw-black uppercase tracking-tighter ${category.accentColor}`}>
                            {category.subtitle}
                          </span>
@@ -109,7 +98,7 @@ export default function SeleccionCategoria() {
 
                     {/* Title */}
                     <div className="mb-2">
-                       <h3 className={`fs-1 fw-black mb-0 text-white italic tracking-tighter uppercase text-shadow-lg`}>
+                       <h3 className="fs-1 fw-black mb-0 italic tracking-tighter uppercase" style={{ color: '#0f172a' }}>
                          {category.title}
                        </h3>
                     </div>
@@ -129,8 +118,8 @@ export default function SeleccionCategoria() {
                           />
                        </div>
                        
-                       <div className="bg-white/5 p-2 px-3 rounded-4 border border-white/10 backdrop-blur-sm flex-grow-1 shadow-inner">
-                          <p className="small text-white text-opacity-90 mb-0 leading-tight italic" style={{ fontSize: '0.85rem' }}>
+                       <div className="p-2 px-3 rounded-4 border border-slate-200 flex-grow-1 shadow-sm" style={{ backgroundColor: 'rgba(219,234,254,0.92)' }}>
+                          <p className="small mb-0 leading-tight italic" style={{ fontSize: '0.85rem', color: '#0f172a' }}>
                             "{category.description}"
                           </p>
                        </div>

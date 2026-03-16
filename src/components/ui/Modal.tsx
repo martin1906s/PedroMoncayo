@@ -34,11 +34,11 @@ export default function Modal({ isOpen, onClose, children, className = '', adjus
       role="dialog"
       aria-modal="true"
       onClick={handleBackdropClick}
-      className={`position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center p-3 p-md-4 ${adjustForNavbar ? 'pt-5' : ''}`}
+      className={`position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center p-3 p-md-4 app-background ${adjustForNavbar ? 'pt-5' : ''}`}
       style={{ 
         zIndex: 1050,
-        background: 'linear-gradient(to bottom right, rgba(0,0,0,0.8), rgba(88,28,135,0.5), rgba(0,0,0,0.8))',
-        backdropFilter: 'blur(8px)'
+        background: 'radial-gradient(circle at 0% 0%, rgba(37,99,235,0.85) 0, transparent 55%), radial-gradient(circle at 100% 0%, rgba(16,185,129,0.8) 0, transparent 55%), rgba(15,23,42,0.65)',
+        backdropFilter: 'blur(10px)'
       }}
     >
       <div

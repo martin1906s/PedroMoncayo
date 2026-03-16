@@ -5,10 +5,23 @@ import { getQuestionCategories } from '../utils/questions'
 import ModalPregunta from '../components/ModalPregunta'
 import ModalGanador from '../components/ModalGanador'
 import ModalTurno from '../components/ModalTurno'
+import {
+  CarIcon,
+  BookIcon,
+  DollarIcon,
+  FlagIcon,
+  CalculatorIcon,
+  TrendingUpIcon,
+  ShieldIcon,
+  TargetIcon,
+  SparklesIcon,
+  UserIcon,
+  ScaleIcon,
+} from '../components/icons/Icons'
 
 const characters = [
-  { name: 'Oso A', image: '/avatars/oso-a.svg' },
-  { name: 'Oso B', image: '/avatars/oso-b.svg' },
+  { name: 'Oso A', image: '/images/osoA.png' },
+  { name: 'Oso B', image: '/images/osoB.png' },
 ]
 
 export default function PantallaPrincipal() {
@@ -54,8 +67,8 @@ export default function PantallaPrincipal() {
   const categories = Object.entries(questionCategories)
 
   const theme = ageCategory === 'ninos' 
-    ? { subtitle: 'Exploradores de Pedro Moncayo (6-12 años)', logo: '/favicon.svg' }
-    : { subtitle: 'Líderes de Pedro Moncayo (13-18 años)', logo: '/favicon.svg' }
+    ? { subtitle: 'Exploradores de Pedro Moncayo (6-12 años)', logo: '/images/logoConLetrasLatreales.png' }
+    : { subtitle: 'Líderes de Pedro Moncayo (13-18 años)', logo: '/images/logoConLetrasLatreales.png' }
 
   const handleCategoryClick = (categoryKey: string) => {
     if (winner !== null) return
@@ -93,9 +106,38 @@ export default function PantallaPrincipal() {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
+  const getCategoryIconComponent = (iconKey: string) => {
+    switch (iconKey) {
+      case 'flag':
+        return FlagIcon
+      case 'dollar':
+        return DollarIcon
+      case 'users':
+        return UserIcon
+      case 'leaf':
+        return ShieldIcon
+      case 'car':
+        return CarIcon
+      case 'book':
+        return BookIcon
+      case 'map':
+        return TargetIcon
+      case 'calculator':
+        return CalculatorIcon
+      case 'trending-up':
+        return TrendingUpIcon
+      case 'cpu':
+        return ScaleIcon
+      case 'star':
+        return SparklesIcon
+      default:
+        return TargetIcon
+    }
+  }
+
   if (!imagesLoaded) {
     return (
-      <div className="min-vh-100 d-flex align-items-center justify-content-center bg-[#0f172a]">
+      <div className="min-vh-100 d-flex align-items-center justify-content-center app-background">
         <div className="text-center animate-pulse">
           <div className="spinner-border text-primary" style={{ width: '4rem', height: '4rem' }}></div>
           <p className="fw-bold fs-4 text-white mt-4">PREPARANDO TU AVENTURA...</p>
@@ -105,11 +147,11 @@ export default function PantallaPrincipal() {
   }
 
   return (
-    <div className="min-vh-100 p-2 p-md-3 position-relative overflow-hidden d-flex flex-column bg-[#0f172a]">
+    <div className="min-vh-100 p-2 p-md-4 position-relative overflow-hidden d-flex flex-column app-background">
       <div className="container-fluid mx-auto position-relative flex-grow-1 d-flex flex-column" style={{ maxWidth: '1400px', zIndex: 1 }}>
-        <div className="text-center mb-2 animate-float">
-          <img src={theme.logo} alt="Logo" className="img-fluid mx-auto mb-1" style={{ maxHeight: '60px' }} />
-          <div className="bg-white/10 d-inline-block px-4 py-1 rounded-full backdrop-blur-md border border-white/20 mb-2 shadow-2xl">
+        <div className="text-center mb-3 animate-float">
+          <img src={theme.logo} alt="Logo" className="img-fluid mx-auto mb-2" style={{ maxHeight: '110px', filter: 'drop-shadow(0 10px 25px rgba(0,0,0,0.5))' }} />
+          <div className="d-inline-block px-4 py-1 rounded-full backdrop-blur-md border border-white/20 mb-2 shadow-2xl" style={{ backgroundColor: 'rgba(15,23,42,0.35)' }}>
             <div className="d-flex align-items-center gap-2">
               <span className="text-white small tracking-widest fw-black uppercase">{theme.subtitle}</span>
             </div>
@@ -129,7 +171,7 @@ export default function PantallaPrincipal() {
         <div className="dark-glass-panel p-2 p-md-3 mb-3 border-white border-opacity-10 shadow-xl">
           <div className="row g-2 align-items-center text-white">
             <div className="col-12 col-md-4">
-              <div className={`p-2 rounded-3 text-center transition-all ${currentTurn === 0 && !winner ? 'glow-active bg-white/10 border border-white/30' : 'opacity-80'}`}>
+              <div className={`p-2 rounded-3 text-center transition-all ${currentTurn === 0 && !winner ? 'glow-active border border-white/30' : 'opacity-80'}`} style={currentTurn === 0 && !winner ? { backgroundColor: 'rgba(15,23,42,0.45)' } : {}}>
                 <div className="d-flex align-items-center justify-content-center gap-3">
                   <img src={characters.find(c => c.name === players[0].character)?.image || ''} alt="P1" style={{ maxHeight: '50px' }} />
                   <div className="text-start">
@@ -145,14 +187,14 @@ export default function PantallaPrincipal() {
             </div>
 
             <div className="col-12 col-md-4 text-center">
-              <div className="bg-white/10 p-2 rounded-4 d-inline-block border border-white/10">
+              <div className="p-2 rounded-4 d-inline-block border border-white/10" style={{ backgroundColor: 'rgba(15,23,42,0.45)' }}>
                 <span className="fw-black fs-5">VS</span>
                 {modalOpen && <div className="text-accent animate-pulse">TIEMPO: {turnTimer}s</div>}
               </div>
             </div>
 
             <div className="col-12 col-md-4">
-              <div className={`p-2 rounded-3 text-center transition-all ${currentTurn === 1 && !winner ? 'glow-active bg-white/10 border border-white/30' : 'opacity-80'}`}>
+              <div className={`p-2 rounded-3 text-center transition-all ${currentTurn === 1 && !winner ? 'glow-active border border-white/30' : 'opacity-80'}`} style={currentTurn === 1 && !winner ? { backgroundColor: 'rgba(15,23,42,0.45)' } : {}}>
                 <div className="d-flex align-items-center justify-content-center gap-3">
                   <div className="text-end">
                     <span className="badge bg-blue-500 py-0 rounded-full text-[10px] mb-1">P2</span>
@@ -175,27 +217,54 @@ export default function PantallaPrincipal() {
             const completedByCurrent = currentPlayer.categoriesCompleted.has(categoryKey)
             const disabled = winner !== null || completedByCurrent
 
+            const IconComponent = getCategoryIconComponent(categoryInfo.icon)
+
             return (
               <div key={categoryKey} className="col-6 col-md-3">
                 <button
                   onClick={() => handleCategoryClick(categoryKey)}
                   disabled={disabled}
-                  className={`w-100 h-100 michi-card text-start transition-all ${disabled ? 'opacity-50 grayscale' : 'hover:scale-102 active:scale-95'} ${completedByCurrent ? 'border-success ring-2 ring-success ring-opacity-50' : ''}`}
-                  style={{ background: 'rgba(255, 255, 255, 0.03)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.1)' }}
+                  className={`w-100 h-100 michi-card text-start transition-all ${disabled ? 'opacity-60' : 'hover:scale-102 active:scale-95'} ${completedByCurrent ? 'border-success ring-2 ring-success ring-opacity-50' : ''}`}
+                  style={{
+                    background: completedByCurrent
+                      ? 'linear-gradient(135deg, rgba(34,197,94,0.16), rgba(16,185,129,0.22))'
+                      : 'linear-gradient(135deg, rgba(219,234,254,0.94), rgba(209,250,229,0.94))',
+                    border: '1px solid rgba(148, 163, 184, 0.55)',
+                    boxShadow: '0 18px 40px rgba(15,23,42,0.18)',
+                  }}
                 >
                   <div className="d-flex flex-column align-items-center gap-1 p-2 text-center h-100 justify-content-center">
-                    <div className="position-relative">
-                      <div className="bg-white/5 p-1 rounded-4 overflow-hidden border border-white/10" style={{ width: '70px', height: '70px' }}>
-                        <img src={categoryInfo.cromo} alt={categoryInfo.name} className="w-100 h-100 object-fit-cover rounded-3" />
+                    <div className="position-relative mb-1">
+                      {/* Icono circular usando componente SVG */}
+                      <div
+                        className="d-flex align-items-center justify-content-center rounded-circle border"
+                        style={{
+                          width: '64px',
+                          height: '64px',
+                          borderColor: completedByCurrent ? '#22c55e' : '#1d4ed8',
+                          background: completedByCurrent
+                            ? 'radial-gradient(circle at 30% 0%, rgba(187,247,208,1), rgba(16,185,129,0.9))'
+                            : 'radial-gradient(circle at 30% 0%, rgba(191,219,254,1), rgba(59,130,246,0.9))',
+                          boxShadow: '0 10px 25px rgba(15,23,42,0.4)',
+                        }}
+                      >
+                        <IconComponent size={28} color="#f9fafb" />
                       </div>
                       {completedByCurrent && (
-                         <div className="position-absolute bottom-0 end-0 bg-success rounded-circle p-1 shadow-lg translate-middle-x">
-                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4"><polyline points="20 6 9 17 4 12"/></svg>
-                         </div>
+                        <div className="position-absolute bottom-0 end-0 bg-success rounded-circle p-1 shadow-lg translate-middle-x">
+                          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="4">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                        </div>
                       )}
                     </div>
                     <div className="w-100">
-                      <h3 className="text-[10px] fw-black text-white mb-0 uppercase tracking-tighter leading-tight">{categoryInfo.name}</h3>
+                      <h3
+                        className="text-[11px] fw-black mb-0 uppercase tracking-tight"
+                        style={{ color: '#0f172a', lineHeight: 1.3 }}
+                      >
+                        {categoryInfo.name}
+                      </h3>
                     </div>
                   </div>
                 </button>
@@ -205,7 +274,12 @@ export default function PantallaPrincipal() {
         </div>
 
         <div className="d-flex gap-3 justify-content-center mt-3 mb-2">
-          <button onClick={handleManualReset} className="btn bg-white/10 text-white px-4 py-2 border border-white/10 hover:bg-white/20 uppercase fw-black">🔄 INICIO</button>
+          <button
+            onClick={handleManualReset}
+            className="btn btn-michi-secondary px-4 py-2 fw-black"
+          >
+            🔄 INICIO
+          </button>
         </div>
       </div>
 

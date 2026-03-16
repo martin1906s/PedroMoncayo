@@ -13,15 +13,15 @@ export default function GameDetectedModal({ isOpen, onStartNew, onClose }: GameD
       <div className="michi-modal animate-in zoom-in duration-300 max-w-md mx-auto overflow-hidden d-flex flex-column" style={{ maxHeight: '90vh' }}>
         
         {/* Header Premium */}
-        <div className="bg-gradient-to-r from-purple-600 to-indigo-600 p-3 text-center border-bottom border-white border-opacity-10">
+        <div className="bg-gradient-to-r from-[#1d4ed8] to-[#0ea5e9] p-3 text-center border-bottom border-white border-opacity-10">
           <h2 className="fs-3 fw-black text-white mb-0 uppercase tracking-widest">Partida Detectada</h2>
         </div>
         
         <div className="p-4 flex-grow-1 d-flex flex-column justify-content-center">
-          <div className="text-center mb-4">
+             <div className="text-center mb-4">
              <div className="d-inline-block position-relative mb-3">
-                <div className="position-absolute top-50 start-50 translate-middle w-24 h-24 bg-purple-500 opacity-20 blur-2xl rounded-circle animate-pulse"></div>
-                <div className="bg-white bg-opacity-10 p-4 rounded-circle backdrop-blur-md border border-white border-opacity-20 position-relative z-10">
+                <div className="position-absolute top-50 start-50 translate-middle w-24 h-24 bg-blue-500 opacity-20 blur-2xl rounded-circle animate-pulse"></div>
+                <div className="p-4 rounded-circle backdrop-blur-md border border-white border-opacity-20 position-relative z-10" style={{ backgroundColor: 'rgba(15,23,42,0.55)' }}>
                    <SaveIcon size={48} className="text-white" />
                 </div>
              </div>
@@ -41,7 +41,7 @@ export default function GameDetectedModal({ isOpen, onStartNew, onClose }: GameD
 
              <button
                onClick={onStartNew}
-               className="btn bg-white bg-opacity-10 text-white py-3 fs-5 border border-white border-opacity-10 hover:bg-opacity-20"
+               className="btn btn-michi-secondary py-3 fs-5"
              >
                 <RefreshIcon size={20} className="me-2" />
                 NUEVA PARTIDA
@@ -49,7 +49,7 @@ export default function GameDetectedModal({ isOpen, onStartNew, onClose }: GameD
 
              <button
                onClick={onClose}
-               className="btn bg-transparent text-white text-opacity-40 py-2 fs-6 hover:text-opacity-100 transition-all uppercase tracking-widest fw-black"
+               className="btn bg-transparent text-[#1f2933] text-opacity-60 py-2 fs-6 hover:text-opacity-100 transition-all uppercase tracking-widest fw-black"
              >
                 CANCELAR
              </button>

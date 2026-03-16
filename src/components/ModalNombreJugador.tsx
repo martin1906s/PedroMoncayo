@@ -49,7 +49,7 @@ export default function ModalNombreJugador({
                <div className="d-inline-block position-relative">
                   <div className="position-absolute top-50 start-50 translate-middle w-32 h-32 bg-primary opacity-20 blur-2xl rounded-circle animate-pulse"></div>
                   
-                  <div className="position-relative z-10 p-2 bg-white bg-opacity-5 rounded-4 border border-white border-opacity-20 backdrop-blur-md shadow-2xl">
+                  <div className="position-relative z-10 p-2 rounded-4 border border-white border-opacity-20 backdrop-blur-md shadow-2xl" style={{ backgroundColor: 'rgba(15,23,42,0.5)' }}>
                     <img 
                       src={characterImage} 
                       alt={characterName}
@@ -97,7 +97,8 @@ export default function ModalNombreJugador({
              <div className="col-5">
                <button
                  onClick={onClose}
-                 className="btn bg-white/5 text-white w-100 py-2 rounded-4 hover:bg-white/10 transition-all border border-white/10 backdrop-blur-md fw-black small tracking-widest"
+                 className="btn text-white w-100 py-2 rounded-4 transition-all border border-white/10 backdrop-blur-md fw-black small tracking-widest"
+                 style={{ backgroundColor: 'rgba(15,23,42,0.5)' }}
                >
                  CANCELAR
                </button>

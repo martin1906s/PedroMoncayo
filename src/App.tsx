@@ -10,7 +10,7 @@ const PantallaPrincipal = lazy(() => import('./pages/PantallaPrincipal'))
 const Resultado = lazy(() => import('./pages/Resultado'))
 
 const LoadingFallback = () => (
-  <div className="min-vh-100 d-flex align-items-center justify-content-center bg-[#0f172a]">
+  <div className="min-vh-100 d-flex align-items-center justify-content-center app-background">
     <div className="text-center animate-pulse">
       <div className="spinner-border mb-4" role="status" style={{ width: '4rem', height: '4rem', color: '#7C3AED', borderWidth: '0.4em' }}>
         <span className="visually-hidden">Cargando...</span>
@@ -22,7 +22,7 @@ const LoadingFallback = () => (
 
 export default function App() {
   return (
-    <div className="min-vh-100">
+    <div className="min-vh-100 app-background d-flex flex-column">
       <Suspense fallback={<LoadingFallback />}>
         <Routes>
           <Route path="/" element={<SeleccionCategoria />} />

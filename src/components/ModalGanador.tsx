@@ -1,15 +1,8 @@
 import Modal from './ui/Modal'
 
 const characters = [
-  { name: 'Michi Aventurero', image: '/images/Todos los Gatos/Biomas-web/Gato _ Explorador.png' },
-  { name: 'Michi Nauta', image: '/images/Todos los Gatos/Biomas-web/Michinauta.png' },
-  { name: 'Michi Frío', image: '/images/Todos los Gatos/Biomas-web/GATO bioma hielo.png' },
-  { name: 'Michi Volcánico', image: '/images/Todos los Gatos/Biomas-web/Gato_Bioma Lava.png' },
-  { name: 'Michi Mágico', image: '/images/Todos los Gatos/Biomas-web/Gato_Bioma Fantasia.png' },
-  { name: 'Michi Minero', image: '/images/Todos los Gatos/Biomas-web/Gato _ Bioma Minero.png' },
-  { name: 'Michi Desértico', image: '/images/Todos los Gatos/Biomas-web/Gato_Bioma Desierto.png' },
-  { name: 'Michi Galáctico', image: '/images/Todos los Gatos/Biomas-web/Gato_Bioma Espacial.png' },
-  { name: 'Michicanico', image: '/images/Todos los Gatos/Biomas-web/Gato_bioma industrial.png' },
+  { name: 'Oso A', image: '/images/osoA.png' },
+  { name: 'Oso B', image: '/images/osoB.png' },
 ]
 
 interface ModalGanadorProps {
@@ -44,7 +37,7 @@ export default function ModalGanador({ isOpen, winner }: ModalGanadorProps) {
       <div className="michi-modal overflow-hidden p-0 border-0 d-flex flex-column" style={{ maxHeight: '90vh' }}>
         <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 h-2 w-full" />
         
-        <div className="p-4 p-md-5 flex-grow-1 d-flex flex-column justify-content-center position-relative overflow-hidden bg-slate-900">
+        <div className="p-4 p-md-5 flex-grow-1 d-flex flex-column justify-content-center position-relative overflow-hidden bg-white">
             <div className="text-center position-relative z-10 w-100 mx-auto" style={{ maxWidth: '800px' }}>
               <div className="mb-4 animate-bounce">
                  <div className="d-inline-block position-relative">

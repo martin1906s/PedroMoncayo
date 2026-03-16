@@ -11,8 +11,8 @@ export default function ModalPregunta({ isOpen, onClose, onAnswer, category }: a
   const [showContinue, setShowContinue] = useState(false)
 
   const theme = ageCategory === 'ninos' 
-    ? { gradient: 'from-[#7C3AED] to-[#C026D3]', bg: 'bg-mesh-purple' }
-    : { gradient: 'from-[#0EA5E9] to-[#2DD4BF]', bg: 'bg-slate-900' }
+    ? { gradient: 'from-[#1d4ed8] to-[#0ea5e9]', bg: 'bg-mesh-purple' }
+    : { gradient: 'from-[#0ea5e9] to-[#10b981]', bg: 'bg-mesh-purple' }
 
   useEffect(() => {
     if (isOpen && category && ageCategory) {
@@ -27,9 +27,25 @@ export default function ModalPregunta({ isOpen, onClose, onAnswer, category }: a
       
       if (pool.length > 0) {
         const randomIndex = Math.floor(Math.random() * pool.length)
-        const selectedQ = pool[randomIndex]
-        setQuestion(selectedQ)
-        markQuestionAsSeen(selectedQ.id)
+        const baseQuestion = pool[randomIndex]
+
+        // Barajar posiciones de respuesta para que la correcta no siempre esté en la misma posición
+        const indices = baseQuestion.options.map((_, idx) => idx)
+        for (let i = indices.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1))
+          ;[indices[i], indices[j]] = [indices[j], indices[i]]
+        }
+        const shuffledOptions = indices.map((idx) => baseQuestion.options[idx])
+        const newCorrectIndex = indices.indexOf(baseQuestion.correctAnswer)
+
+        const shuffledQuestion: Question = {
+          ...baseQuestion,
+          options: shuffledOptions,
+          correctAnswer: newCorrectIndex,
+        }
+
+        setQuestion(shuffledQuestion)
+        markQuestionAsSeen(baseQuestion.id)
       }
       
       setSelectedAnswer(null)
@@ -46,19 +62,19 @@ export default function ModalPregunta({ isOpen, onClose, onAnswer, category }: a
     setIsCorrect(correct)
 
     if (correct) {
+      // Mostrar mensaje de acierto y cerrar automáticamente luego de 2 segundos
+      setShowContinue(true)
       setTimeout(() => {
         onAnswer(true)
         onClose()
       }, 2000)
     } else {
-      setTimeout(() => setShowContinue(true), 1000)
-    }
-  }
-
-  const handleContinue = () => {
-    if (isCorrect !== null) {
-      onAnswer(isCorrect)
-      onClose()
+      // Mostrar mensaje de error y cerrar automáticamente luego de 2 segundos
+      setShowContinue(true)
+      setTimeout(() => {
+        onAnswer(false)
+        onClose()
+      }, 2000)
     }
   }
 
@@ -93,11 +109,11 @@ export default function ModalPregunta({ isOpen, onClose, onAnswer, category }: a
                         const isCorrectOption = index === question.correctAnswer
                         const showResult = selectedAnswer !== null
                         
-                        let cardClass = "bg-white text-[#0f172a] hover:bg-opacity-90 shadow-md border-transparent"
+                        let cardClass = "bg-mesh-purple text-[#0f172a] hover:bg-opacity-90 shadow-md border-transparent"
                         if (showResult) {
                            if (isCorrectOption) cardClass = "bg-success border-white scale-102 shadow-lg text-white"
                            else if (isSelected) cardClass = "bg-danger border-white scale-98 opacity-90 text-white"
-                           else cardClass = "bg-white bg-opacity-20 border-white border-opacity-5 opacity-40 text-[#0f172a]/50"
+                           else cardClass = "bg-mesh-purple border-white border-opacity-5 opacity-40 text-[#0f172a]/50"
                         }
 
                         return (
@@ -115,30 +131,74 @@ export default function ModalPregunta({ isOpen, onClose, onAnswer, category }: a
             </div>
 
             {showContinue && isCorrect === false && (
-             <div className="position-absolute top-0 start-0 w-100 h-100 dark-glass-panel d-flex align-items-center justify-content-center animate-in zoom-in duration-300" style={{ zIndex: 100 }}>
-               <div className="text-center p-4">
-                 <div className="mb-3 animate-bounce">
-                    <img src="/images/Todos los Gatos/Gatos nuevos/Gato triste.png" alt="Ups" style={{ maxHeight: '120px' }} />
+             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center animate-in zoom-in duration-300" style={{ zIndex: 100, backdropFilter: 'blur(10px)', background: 'rgba(15,23,42,0.55)' }}>
+               <div className="michi-card text-center px-4 px-md-5 py-4 py-md-5" style={{ maxWidth: '640px', borderRadius: '1.75rem' }}>
+                 <div className="d-flex flex-column align-items-center mb-3">
+                   <div
+                     className="rounded-circle d-flex align-items-center justify-content-center mb-3"
+                     style={{
+                       width: '80px',
+                       height: '80px',
+                       background: 'radial-gradient(circle at 30% 0%, rgba(254,242,242,1), rgba(239,68,68,0.9))',
+                       boxShadow: '0 18px 45px rgba(127,29,29,0.55)',
+                     }}
+                   >
+                     <span className="fw-black" style={{ fontSize: '2.5rem', color: '#f9fafb' }}>!</span>
+                   </div>
+                   <h3 className="fs-1 fw-black mb-1" style={{ color: '#111827', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                     ¡CUIDADO!
+                   </h3>
+                   <p className="mb-0" style={{ color: '#6b7280', fontWeight: 600, fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '0.18em' }}>
+                     respuesta incorrecta
+                   </p>
                  </div>
-                 <h3 className="fs-1 fw-black text-white mb-2">¡CUIDADO!</h3>
-                 <div className="bg-white bg-opacity-10 p-3 rounded-4 backdrop-blur-md mb-4 max-w-sm mx-auto border border-white border-opacity-10">
-                    <p className="fs-6 text-white mb-0">{question.explanation || "¡Inténtalo de nuevo!"}</p>
+                 <div
+                   className="px-3 px-md-4 py-3 rounded-4"
+                   style={{
+                     background: 'linear-gradient(135deg, rgba(219,234,254,0.95), rgba(209,250,229,0.95))',
+                     border: '1px solid rgba(148,163,184,0.6)',
+                   }}
+                 >
+                   <p className="fs-6 mb-0" style={{ color: '#111827' }}>
+                     {question.explanation || 'Las cooperativas se basan en solidaridad, ayuda mutua y participación democrática.'}
+                   </p>
                  </div>
-                 <button onClick={handleContinue} className="btn btn-michi-primary px-4 py-3 fs-5 shadow-premium">VOLVER AL TABLERO</button>
                </div>
              </div>
             )}
 
-            {isCorrect && (
-             <div className="position-absolute top-0 start-0 w-100 h-100 dark-glass-panel d-flex align-items-center justify-content-center animate-in zoom-in duration-300" style={{ zIndex: 100 }}>
-               <div className="text-center p-4">
-                 <div className="mb-3 animate-float">
-                    <img src="/images/Todos los Gatos/Gatos nuevos/Gato Celebrando (salto).png" alt="Genial" style={{ maxHeight: '120px' }} />
+            {showContinue && isCorrect === true && (
+             <div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center animate-in zoom-in duration-300" style={{ zIndex: 100, backdropFilter: 'blur(10px)', background: 'rgba(15,23,42,0.55)' }}>
+               <div className="michi-card text-center px-4 px-md-5 py-4 py-md-5" style={{ maxWidth: '640px', borderRadius: '1.75rem' }}>
+                 <div className="d-flex flex-column align-items-center mb-3">
+                   <div
+                     className="rounded-circle d-flex align-items-center justify-content-center mb-3"
+                     style={{
+                       width: '80px',
+                       height: '80px',
+                       background: 'radial-gradient(circle at 30% 0%, rgba(240,253,250,1), rgba(16,185,129,0.95))',
+                       boxShadow: '0 18px 45px rgba(6,95,70,0.55)',
+                     }}
+                   >
+                     <span className="fw-black" style={{ fontSize: '2.5rem', color: '#ecfdf5' }}>✓</span>
+                   </div>
+                   <h3 className="fs-1 fw-black mb-1" style={{ color: '#111827', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                     ¡GENIAL!
+                   </h3>
+                   <p className="mb-0" style={{ color: '#16a34a', fontWeight: 700, fontSize: '1rem', textTransform: 'uppercase', letterSpacing: '0.18em' }}>
+                     +100 puntos
+                   </p>
                  </div>
-                 <h3 className="fs-1 fw-black text-white mb-2">¡GENIAL!</h3>
-                 <div className="d-flex justify-content-center align-items-center gap-2">
-                    <img src="/images/Todos los Gatos/Logo/moneda vector.png" alt="Coin" className="animate-spin" style={{ width: '30px' }} />
-                    <span className="fs-3 fw-black text-accent">+100 PUNTOS</span>
+                 <div
+                   className="px-3 px-md-4 py-3 rounded-4"
+                   style={{
+                     background: 'linear-gradient(135deg, rgba(240,253,250,0.98), rgba(224,242,254,0.98))',
+                     border: '1px solid rgba(74,222,128,0.7)',
+                   }}
+                 >
+                   <p className="fs-6 mb-0" style={{ color: '#064e3b' }}>
+                     ¡Sigue así! Cada respuesta correcta te acerca a dominar la educación financiera.
+                   </p>
                  </div>
                </div>
              </div>
