@@ -169,9 +169,9 @@ export default function PantallaPrincipal() {
         </div>
 
         <div className="dark-glass-panel p-2 p-md-3 mb-3 border-white border-opacity-10 shadow-xl">
-          <div className="row g-2 align-items-center text-white">
+          <div className="row g-2 align-items-center">
             <div className="col-12 col-md-4">
-              <div className={`p-2 rounded-3 text-center transition-all ${currentTurn === 0 && !winner ? 'glow-active border border-white/30' : 'opacity-80'}`} style={currentTurn === 0 && !winner ? { backgroundColor: 'rgba(15,23,42,0.45)' } : {}}>
+              <div className={`p-2 rounded-3 text-center transition-all ${currentTurn === 0 && !winner ? 'glow-active border border-white/30' : 'opacity-80'}`} style={currentTurn === 0 && !winner ? { backgroundColor: 'rgba(15,23,42,0.45)', color: '#f9fafb' } : { color: '#111827' }}>
                 <div className="d-flex align-items-center justify-content-center gap-3">
                   <img src={characters.find(c => c.name === players[0].character)?.image || ''} alt="P1" style={{ maxHeight: '50px' }} />
                   <div className="text-start">
@@ -187,14 +187,14 @@ export default function PantallaPrincipal() {
             </div>
 
             <div className="col-12 col-md-4 text-center">
-              <div className="p-2 rounded-4 d-inline-block border border-white/10" style={{ backgroundColor: 'rgba(15,23,42,0.45)' }}>
+              <div className="p-2 rounded-4 d-inline-block border border-white/10" style={{ backgroundColor: 'rgba(15,23,42,0.45)', color: '#f9fafb' }}>
                 <span className="fw-black fs-5">VS</span>
-                {modalOpen && <div className="text-accent animate-pulse">TIEMPO: {turnTimer}s</div>}
+                {modalOpen && <div className="text-accent animate-pulse" style={{ color: '#bbf7d0' }}>TIEMPO: {turnTimer}s</div>}
               </div>
             </div>
 
             <div className="col-12 col-md-4">
-              <div className={`p-2 rounded-3 text-center transition-all ${currentTurn === 1 && !winner ? 'glow-active border border-white/30' : 'opacity-80'}`} style={currentTurn === 1 && !winner ? { backgroundColor: 'rgba(15,23,42,0.45)' } : {}}>
+              <div className={`p-2 rounded-3 text-center transition-all ${currentTurn === 1 && !winner ? 'glow-active border border-white/30' : 'opacity-80'}`} style={currentTurn === 1 && !winner ? { backgroundColor: 'rgba(15,23,42,0.45)', color: '#f9fafb' } : { color: '#111827' }}>
                 <div className="d-flex align-items-center justify-content-center gap-3">
                   <div className="text-end">
                     <span className="badge bg-blue-500 py-0 rounded-full text-[10px] mb-1">P2</span>
