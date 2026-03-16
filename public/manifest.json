@@ -1,0 +1,21 @@
+{
+  "name": "Michi Money Pedro Moncayo",
+  "short_name": "Michi Money PM",
+  "description": "Juego educativo para Pedro Moncayo con retos de finanzas, territorio y comunidad.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2563EB",
+  "theme_color": "#2563EB",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "games"],
+  "lang": "es",
+  "dir": "ltr"
+}

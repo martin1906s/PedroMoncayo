@@ -1,0 +1,15 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo con gradiente Warmi Power -->
+  <defs>
+    <linearGradient id="warmiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#B018A9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#54F6C5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo redondeado -->
+  <rect width="512" height="512" rx="100" fill="url(#warmiGradient)"/>
+  
+  <!-- Letra W en blanco -->
+  <path d="M 100 140 L 160 380 L 220 200 L 280 380 L 340 200 L 400 380 L 460 140 L 420 140 L 380 300 L 320 120 L 260 300 L 200 120 L 140 300 L 100 140 Z" fill="white" stroke="white" stroke-width="8" stroke-linejoin="round"/>
+</svg>
