@@ -178,7 +178,7 @@ export default function PantallaPrincipal() {
                     <span className="badge bg-purple-500 py-0 rounded-full text-[10px] mb-1">P1</span>
                     <h4 className="fs-6 fw-black mb-0">{players[0].customName || players[0].character}</h4>
                     <div className="d-flex gap-2 small opacity-70">
-                      <span>Cat: {players[0].categoriesCompleted.size}/8</span>
+                      <span>Cat: {players[0].categoriesCompleted.size}/{categories.length}</span>
                       <span>⏱️ {formatTime(players[0].timeSpent)}</span>
                     </div>
                   </div>
@@ -201,7 +201,7 @@ export default function PantallaPrincipal() {
                     <h4 className="fs-6 fw-black mb-0">{players[1].customName || players[1].character}</h4>
                     <div className="d-flex gap-2 small opacity-70 justify-content-end">
                       <span>⏱️ {formatTime(players[1].timeSpent)}</span>
-                      <span>Cat: {players[1].categoriesCompleted.size}/8</span>
+                      <span>Cat: {players[1].categoriesCompleted.size}/{categories.length}</span>
                     </div>
                   </div>
                   <img src={characters.find(c => c.name === players[1].character)?.image || ''} alt="P2" style={{ maxHeight: '50px' }} />
