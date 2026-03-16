@@ -95,8 +95,10 @@ export default function ModalPregunta({ isOpen, onClose, onAnswer, category }: a
         
         <div className="p-3 p-md-4 flex-grow-1 d-flex flex-column justify-content-center overflow-hidden">
             <div className="text-center mb-4">
-               <span className="fs-6 fw-black text-white uppercase tracking-widest opacity-70 mb-2 d-block">{categoryInfo?.name}</span>
-               <h3 className="fs-2 fw-black text-white leading-tight mb-0">
+               <span className="fs-6 fw-black uppercase tracking-widest opacity-80 mb-2 d-block" style={{ color: '#111827' }}>
+                 {categoryInfo?.name}
+               </span>
+               <h3 className="fs-2 fw-black leading-tight mb-0" style={{ color: '#111827' }}>
                  {question.text}
                </h3>
             </div>

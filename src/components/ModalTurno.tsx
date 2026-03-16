@@ -35,7 +35,7 @@ export default function ModalTurno({ isOpen, onClose, currentPlayer }: ModalTurn
         
         {/* Header Compacto */}
         <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-3 text-center border-bottom border-white border-opacity-10">
-          <h2 className="fs-3 fw-black text-white mb-0 uppercase tracking-widest italic">Turno de Acción</h2>
+          <h2 className="fs-3 fw-black mb-0 uppercase tracking-widest italic" style={{ color: '#f9fafb' }}>Turno de Acción</h2>
         </div>
         
         <div className="p-4 flex-grow-1 d-flex flex-column justify-content-center">
@@ -53,16 +53,16 @@ export default function ModalTurno({ isOpen, onClose, currentPlayer }: ModalTurn
                 </div>
              </div>
              
-             <h3 className="display-5 fw-black text-white mb-1 uppercase tracking-tighter italic">
+             <h3 className="display-5 fw-black mb-1 uppercase tracking-tighter italic" style={{ color: '#111827' }}>
                {currentPlayer.customName || currentPlayer.character}
              </h3>
-             <div className="badge bg-white bg-opacity-10 px-4 py-2 rounded-full border border-white border-opacity-10 text-white tracking-widest fw-black small uppercase">
+             <div className="badge px-4 py-2 rounded-full border tracking-widest fw-black small uppercase" style={{ backgroundColor: 'rgba(219,234,254,0.95)', borderColor: 'rgba(148,163,184,0.7)', color: '#111827' }}>
                 {currentPlayer.points} Puntos • {currentPlayer.categoriesCompleted.size}/6 Categorías
              </div>
           </div>
 
           <div className="dark-glass-panel p-4 mb-4 border-blue-500 border-opacity-20">
-             <p className="text-white text-opacity-80 fs-5 mb-0 text-center italic">
+             <p className="fs-5 mb-0 text-center italic" style={{ color: '#111827' }}>
                "Es tu momento de demostrar cuánto sabes. ¡Selecciona una categoría para continuar!"
              </p>
           </div>

@@ -161,10 +161,10 @@ export default function PantallaPrincipal() {
         {/* Sponsors Pedro Moncayo */}
         <div className="mb-3">
           <div className="dark-glass-panel px-3 py-2 rounded-4 d-flex flex-wrap justify-content-center gap-3 border border-white border-opacity-10">
-            <span className="text-white text-uppercase small fw-bold opacity-80">Con el apoyo de:</span>
-            <span className="badge bg-primary bg-opacity-80 text-white fw-semibold">GAD Municipal Pedro Moncayo</span>
-            <span className="badge bg-success bg-opacity-80 text-white fw-semibold">Empresas locales</span>
-            <span className="badge bg-info bg-opacity-80 text-white fw-semibold">Comunidad educativa</span>
+            <span className="text-uppercase small fw-bold opacity-80" style={{ color: '#111827' }}>Con el apoyo de:</span>
+            <span className="badge bg-primary bg-opacity-80 fw-semibold" style={{ color: '#f9fafb' }}>GAD Municipal Pedro Moncayo</span>
+            <span className="badge bg-success bg-opacity-80 fw-semibold" style={{ color: '#f9fafb' }}>Empresas locales</span>
+            <span className="badge bg-info bg-opacity-80 fw-semibold" style={{ color: '#f9fafb' }}>Comunidad educativa</span>
           </div>
         </div>
 
